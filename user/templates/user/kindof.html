@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block right-panel-content %}
+    <h2 align="center">车源分类</h2>
+    {% for tag in tags %}
+            <div class="col-md-3" style="margin-top: 15px">
+      <a class="tags-input h2" href="{% url 'kind' tag.id %}"><span class="label label-primary">{{ tag.name }}</span> </a>
+                </div>
+    {% endfor %}
+{% endblock %}

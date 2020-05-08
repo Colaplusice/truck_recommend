@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block right-panel-content %}
+<h3 style="text-align:center">{{ i.tags }}</h3>
+    {% if not trucks %}
+        <h2 class="text-center">没有货车</h2>
+    {% endif %}
+{% for truck in trucks %}
+<div class="container-fluid">
+	<div class="row clearfix">
+		<div class="col-md-3 column">
+                                <img class="img-thumbnail truck-image" alt="140x140" src="/media/truck_images/{{ truck.pic }}" width=140px
+                         height=140px/>
+		</div>
+		<div class="col-md-7 column">
+			<h3>
+				<a href="{% url 'truck' truck.id %}">	{{ truck.name }}</a>
+			</h3>
+			<p>{{ i.intro | slice:":100" }}......</p>
+			<p>浏览量:{{ truck.num }}</p>
+		</div>
+	</div>
+</div>
+{% endfor %}
+{% endblock %}
